@@ -1,22 +1,29 @@
 PODS:
+  - JGProgressHUD (2.0.3)
   - PLPlayerKit (3.4.1):
-    - PLPlayerKit/iphoneos (= 3.4.1)
-  - PLPlayerKit/iphoneos (3.4.1)
+    - PLPlayerKit/universal (= 3.4.1)
+  - PLPlayerKit/universal (3.4.1)
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
-  - PLPlayerKit
+  - JGProgressHUD
+  - PLPlayerKit (from `https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec`)
   - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - PLPlayerKit
+    - JGProgressHUD
     - SnapKit
 
+EXTERNAL SOURCES:
+  PLPlayerKit:
+    :podspec: https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec
+
 SPEC CHECKSUMS:
-  PLPlayerKit: ebec9d70b66a95d1770b2dc5107fe2a469454a28
+  JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
+  PLPlayerKit: 8dbda4525878842315e0ae6329dcefa7b5d8cc7e
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 42f2d2ae277da403db5cd1bd6bd1ad5ffd6c0ff3
+PODFILE CHECKSUM: a9afd81e76a5d0855727b4461937fc5235b2ac76
 
 COCOAPODS: 1.7.5

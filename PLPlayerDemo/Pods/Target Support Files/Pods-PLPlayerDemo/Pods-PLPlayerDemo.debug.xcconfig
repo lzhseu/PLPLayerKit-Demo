@@ -1,9 +1,9 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/JGProgressHUD" "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit" "${PODS_ROOT}/PLPlayerKit/Pod/Library-Universal"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/JGProgressHUD" "${PODS_CONFIGURATION_BUILD_DIR}/MMMaterialDesignSpinner" "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit" "${PODS_ROOT}/PLPlayerKit/Pod/Library-Universal"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/JGProgressHUD/JGProgressHUD.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/JGProgressHUD/JGProgressHUD.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/MMMaterialDesignSpinner/MMMaterialDesignSpinner.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -l"bz2" -l"c++" -l"iconv" -l"resolv" -l"z" -framework "AVFoundation" -framework "AVKit" -framework "Accelerate" -framework "AudioToolbox" -framework "CoreAudio" -framework "CoreMedia" -framework "CoreTelephony" -framework "CoreVideo" -framework "Foundation" -framework "JGProgressHUD" -framework "MediaPlayer" -framework "OpenGLES" -framework "PLPlayerKit" -framework "QuartzCore" -framework "SnapKit" -framework "UIKit" -framework "VideoToolbox"
+OTHER_LDFLAGS = $(inherited) -l"bz2" -l"c++" -l"iconv" -l"resolv" -l"z" -framework "AVFoundation" -framework "AVKit" -framework "Accelerate" -framework "AudioToolbox" -framework "CoreAudio" -framework "CoreGraphics" -framework "CoreMedia" -framework "CoreTelephony" -framework "CoreVideo" -framework "Foundation" -framework "JGProgressHUD" -framework "MMMaterialDesignSpinner" -framework "MediaPlayer" -framework "OpenGLES" -framework "PLPlayerKit" -framework "QuartzCore" -framework "SnapKit" -framework "UIKit" -framework "VideoToolbox"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

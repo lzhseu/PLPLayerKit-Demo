@@ -1,5 +1,6 @@
 PODS:
   - JGProgressHUD (2.0.3)
+  - MMMaterialDesignSpinner (0.2.5)
   - PLPlayerKit (3.4.1):
     - PLPlayerKit/universal (= 3.4.1)
   - PLPlayerKit/universal (3.4.1)
@@ -7,12 +8,14 @@ PODS:
 
 DEPENDENCIES:
   - JGProgressHUD
+  - MMMaterialDesignSpinner
   - PLPlayerKit (from `https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec`)
   - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - JGProgressHUD
+    - MMMaterialDesignSpinner
     - SnapKit
 
 EXTERNAL SOURCES:
@@ -21,9 +24,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
+  MMMaterialDesignSpinner: a548042720c2e5f04212048483085d7942ac3e81
   PLPlayerKit: 8dbda4525878842315e0ae6329dcefa7b5d8cc7e
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: a9afd81e76a5d0855727b4461937fc5235b2ac76
+PODFILE CHECKSUM: 5f06be98f4aa4991a003e144732fee7ec051757f
 
 COCOAPODS: 1.7.5

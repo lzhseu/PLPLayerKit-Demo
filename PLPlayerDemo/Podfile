@@ -10,5 +10,6 @@ target 'PLPlayerDemo' do
 pod "PLPlayerKit", :podspec => 'https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec'
 pod 'SnapKit'
 pod 'JGProgressHUD'
+pod 'MMMaterialDesignSpinner'
 
 end

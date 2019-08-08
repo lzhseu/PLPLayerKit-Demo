@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-PLPlayerDemo/Pods-PLPlayerDemo-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework
+${BUILT_PRODUCTS_DIR}/MMMaterialDesignSpinner/MMMaterialDesignSpinner.framework
 ${PODS_ROOT}/PLPlayerKit/Pod/Library-Universal/PLPlayerKit.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework

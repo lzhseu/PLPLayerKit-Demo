@@ -52,12 +52,15 @@ class PLPlayerViewController: UIViewController {
         return singleTab
     }()
     
+    /// 此属性已经不用
+    /*
     private lazy var hud: JGProgressHUD = {
         let hud = JGProgressHUD(style: .light)
         hud.textLabel.text = "Loading"
         hud.vibrancyEnabled = true
         return hud
     }()
+    */
     
     private lazy var thumbImageView: UIImageView = {
         let imgView = UIImageView(image: UIImage(named: "qn_niu"))
@@ -295,12 +298,14 @@ extension PLPlayerViewController{
     private func showWaiting(){
         playBtn.isHidden = true
         guard let view = player?.playerView else { return }
-        hud.show(in: view)
+        //hud.show(in: view)
+        view.showFullLoading()
         view.bringSubviewToFront(closeBtn)
     }
     
     private func hideWaiting(){
-        hud.dismiss()
+        //hud.dismiss()
+        view.hideFullLoading()
         if player?.status != PLPlayerStatus.statusPlaying {
             playBtn.isHidden = false
             player?.playerView?.bringSubviewToFront(playBtn)

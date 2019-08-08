@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-PLPlayerDemo/Pods-PLPlayerDemo-frameworks.sh
+${PODS_ROOT}/PLPlayerKit/Pod/Library/PLPlayerKit.framework
+${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework

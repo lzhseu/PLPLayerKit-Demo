@@ -13,11 +13,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var isForceLandscape: Bool = true
+    var isForcePortrait: Bool = true
+    var isForceAllDerictions: Bool = true //支持所有方向
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }
+    
+    /// 设置屏幕支持的方向
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        if isForceAllDerictions == true {
+            return .all
+        } else if isForceLandscape == true {
+            return .landscape
+        } else if isForcePortrait == true {
+            return .portrait
+        }
+        return .portrait
+    }
+    
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

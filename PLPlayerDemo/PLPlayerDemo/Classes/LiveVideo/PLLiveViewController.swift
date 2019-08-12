@@ -66,7 +66,7 @@ extension PLLiveViewController{
 extension PLLiveViewController{
     
     @objc private func scanBtnClick(){
-        print("scan click...")
+        
     }
     
     @objc private func urlBtnClick(){

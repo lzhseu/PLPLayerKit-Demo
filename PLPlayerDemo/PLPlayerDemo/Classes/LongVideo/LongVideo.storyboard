@@ -29,7 +29,7 @@
         <!--长视频-->
         <scene sceneID="sZi-ib-16g">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xwB-TB-crk" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xwB-TB-crk" customClass="PLLongNavigationController" customModule="PLPlayerDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="长视频" id="zRd-6N-Rxy"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

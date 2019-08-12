@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7376151E48C3DDB184F7633A /* Pods_PLPlayerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2FDF3E7BD93CB0760AC2A5D /* Pods_PLPlayerDemo.framework */; };
+		F33B867C2301317A00DBAE8E /* CommonConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B867B2301317900DBAE8E /* CommonConstant.swift */; };
+		F33B867E2301318100DBAE8E /* URLConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B867D2301318100DBAE8E /* URLConstant.swift */; };
+		F33B86802301323400DBAE8E /* PLLongVideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B867F2301323400DBAE8E /* PLLongVideoCollectionViewCell.swift */; };
+		F33B86822301337000DBAE8E /* PLPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B86812301337000DBAE8E /* PLPlayerView.swift */; };
+		F33B868623013FEB00DBAE8E /* PLLongNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B868523013FEB00DBAE8E /* PLLongNavigationController.swift */; };
+		F33B8688230177C900DBAE8E /* ScreenOrientationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B8687230177C900DBAE8E /* ScreenOrientationTools.swift */; };
 		F3E8C80322FBB0AE0090AABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E8C80222FBB0AE0090AABD /* AppDelegate.swift */; };
 		F3E8C80822FBB0AE0090AABD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3E8C80622FBB0AE0090AABD /* Main.storyboard */; };
 		F3E8C80A22FBB0AF0090AABD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3E8C80922FBB0AF0090AABD /* Assets.xcassets */; };
@@ -30,6 +36,12 @@
 		7B74C42D1CD6532ECF49E84F /* Pods-PLPlayerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PLPlayerDemo.release.xcconfig"; path = "Target Support Files/Pods-PLPlayerDemo/Pods-PLPlayerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		DA03F35847C57FDC8F57918C /* Pods-PLPlayerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PLPlayerDemo.debug.xcconfig"; path = "Target Support Files/Pods-PLPlayerDemo/Pods-PLPlayerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		E2FDF3E7BD93CB0760AC2A5D /* Pods_PLPlayerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PLPlayerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F33B867B2301317900DBAE8E /* CommonConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonConstant.swift; sourceTree = "<group>"; };
+		F33B867D2301318100DBAE8E /* URLConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstant.swift; sourceTree = "<group>"; };
+		F33B867F2301323400DBAE8E /* PLLongVideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLLongVideoCollectionViewCell.swift; sourceTree = "<group>"; };
+		F33B86812301337000DBAE8E /* PLPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLPlayerView.swift; sourceTree = "<group>"; };
+		F33B868523013FEB00DBAE8E /* PLLongNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLLongNavigationController.swift; sourceTree = "<group>"; };
+		F33B8687230177C900DBAE8E /* ScreenOrientationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenOrientationTools.swift; sourceTree = "<group>"; };
 		F3E8C7FF22FBB0AE0090AABD /* PLPlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PLPlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E8C80222FBB0AE0090AABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3E8C80722FBB0AE0090AABD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +136,9 @@
 		F3E8C81922FBBE290090AABD /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F33B867B2301317900DBAE8E /* CommonConstant.swift */,
+				F33B867D2301318100DBAE8E /* URLConstant.swift */,
+				F33B8687230177C900DBAE8E /* ScreenOrientationTools.swift */,
 				F3E8C81A22FBBE290090AABD /* Extension */,
 			);
 			path = Tools;
@@ -169,6 +184,7 @@
 		F3E8C82122FBBE290090AABD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F33B86812301337000DBAE8E /* PLPlayerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,6 +213,8 @@
 			children = (
 				F3E8C82C22FBC14E0090AABD /* LongVideo.storyboard */,
 				F3E8C83022FBC1A80090AABD /* PLLongVideoViewController.swift */,
+				F33B867F2301323400DBAE8E /* PLLongVideoCollectionViewCell.swift */,
+				F33B868523013FEB00DBAE8E /* PLLongNavigationController.swift */,
 			);
 			path = LongVideo;
 			sourceTree = "<group>";
@@ -321,14 +339,20 @@
 			files = (
 				F3E8C82B22FBC06A0090AABD /* PLLiveViewController.swift in Sources */,
 				F3E8C82422FBBE290090AABD /* NsDate-Extension.swift in Sources */,
+				F33B86802301323400DBAE8E /* PLLongVideoCollectionViewCell.swift in Sources */,
 				F3E8C83522FBC1F90090AABD /* PLShortVideoViewController.swift in Sources */,
+				F33B8688230177C900DBAE8E /* ScreenOrientationTools.swift in Sources */,
 				F3E8C80322FBB0AE0090AABD /* AppDelegate.swift in Sources */,
 				F3E8C83122FBC1A80090AABD /* PLLongVideoViewController.swift in Sources */,
+				F33B868623013FEB00DBAE8E /* PLLongNavigationController.swift in Sources */,
+				F33B867E2301318100DBAE8E /* URLConstant.swift in Sources */,
 				F3E8C83922FBE5140090AABD /* PLPlayerViewController.swift in Sources */,
 				F3E8C82222FBBE290090AABD /* UIColor-Extension.swift in Sources */,
 				F3E8C82322FBBE290090AABD /* UIBarButtonItem-Extension.swift in Sources */,
+				F33B867C2301317A00DBAE8E /* CommonConstant.swift in Sources */,
 				F3E8C85F22FC4FC40090AABD /* UIView-Extension.swift in Sources */,
 				F3E8C81722FBBD1E0090AABD /* MainViewController.swift in Sources */,
+				F33B86822301337000DBAE8E /* PLPlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,7 @@
 		F33B86822301337000DBAE8E /* PLPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B86812301337000DBAE8E /* PLPlayerView.swift */; };
 		F33B868623013FEB00DBAE8E /* PLLongNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B868523013FEB00DBAE8E /* PLLongNavigationController.swift */; };
 		F33B8688230177C900DBAE8E /* ScreenOrientationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B8687230177C900DBAE8E /* ScreenOrientationTools.swift */; };
+		F33B868A23025ADC00DBAE8E /* PLControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B868923025ADC00DBAE8E /* PLControlView.swift */; };
 		F3E8C80322FBB0AE0090AABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E8C80222FBB0AE0090AABD /* AppDelegate.swift */; };
 		F3E8C80822FBB0AE0090AABD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3E8C80622FBB0AE0090AABD /* Main.storyboard */; };
 		F3E8C80A22FBB0AF0090AABD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3E8C80922FBB0AF0090AABD /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		F33B86812301337000DBAE8E /* PLPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLPlayerView.swift; sourceTree = "<group>"; };
 		F33B868523013FEB00DBAE8E /* PLLongNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLLongNavigationController.swift; sourceTree = "<group>"; };
 		F33B8687230177C900DBAE8E /* ScreenOrientationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenOrientationTools.swift; sourceTree = "<group>"; };
+		F33B868923025ADC00DBAE8E /* PLControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLControlView.swift; sourceTree = "<group>"; };
 		F3E8C7FF22FBB0AE0090AABD /* PLPlayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PLPlayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3E8C80222FBB0AE0090AABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3E8C80722FBB0AE0090AABD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				F33B86812301337000DBAE8E /* PLPlayerView.swift */,
+				F33B868923025ADC00DBAE8E /* PLControlView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				F33B868623013FEB00DBAE8E /* PLLongNavigationController.swift in Sources */,
 				F33B867E2301318100DBAE8E /* URLConstant.swift in Sources */,
 				F3E8C83922FBE5140090AABD /* PLPlayerViewController.swift in Sources */,
+				F33B868A23025ADC00DBAE8E /* PLControlView.swift in Sources */,
 				F3E8C82222FBBE290090AABD /* UIColor-Extension.swift in Sources */,
 				F3E8C82322FBBE290090AABD /* UIBarButtonItem-Extension.swift in Sources */,
 				F33B867C2301317A00DBAE8E /* CommonConstant.swift in Sources */,

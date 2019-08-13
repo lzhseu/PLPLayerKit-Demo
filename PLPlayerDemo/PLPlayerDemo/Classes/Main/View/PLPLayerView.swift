@@ -18,6 +18,11 @@ private let kCenterBtnWH = 64
 private let kSnapShotBtnWH = 60
 private let kBottomProgressH = 3
 private let kControlViewLeftOffSetPlayerView = 290
+private let kFullValueOfPanGesture: CGFloat = 200
+private let kmaxVolume: Float = 5
+private let kminVolume: Float = 0.01
+private let kmaxBrightness: CGFloat = 3
+private let kminBrightness: CGFloat = 0.01
 
 protocol PLPlayerViewDelegate: class {
     func playerViewEnterFullScreen(playerView: PLPlayerView)
@@ -200,6 +205,13 @@ class PLPlayerView: UIView {
     private lazy var singleTap: UITapGestureRecognizer = {
         let singleTab = UITapGestureRecognizer(target: self, action: #selector(singleTapAction))
         return singleTab
+    }()
+    
+    /// 拖拽屏幕手势
+    private lazy var panGesture: UIPanGestureRecognizer = {
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureAction))
+        panGesture.delegate = self
+        return panGesture
     }()
 
 
@@ -407,7 +419,9 @@ extension PLPlayerView{
         
         //如果是竖屏
         if orientation == .portrait{
-            // TODO: 将手势调节音量等去掉
+            if !(gestureRecognizers?.contains(panGesture) ?? true){
+                removeGestureRecognizer(panGesture)
+            }
             snapshotButton.isHidden = true
             
             //隐藏playBtn
@@ -430,7 +444,9 @@ extension PLPlayerView{
             if !isFirst {
                 // TODO: 不是第一次，也就是从横屏切换成竖屏，此时加入一些操作
                 // TODO: 隐藏controlView
-                // TODO: 将调节音量的手势去掉
+                if !(gestureRecognizers?.contains(singleTap) ?? false){
+                    addGestureRecognizer(singleTap)
+                }
                 hideTopBar()
                 doConstraintAnimation()
                 delegate?.playerViewExitFullScreen(playerView: self)
@@ -442,7 +458,9 @@ extension PLPlayerView{
             
         } else { //横屏
             
-            // TODO: 加入手势调节音量的操作
+            if !(gestureRecognizers?.contains(panGesture) ?? false){
+                addGestureRecognizer(panGesture)
+            }
             
             var duration: CGFloat = 0.5
             
@@ -475,7 +493,6 @@ extension PLPlayerView{
             }
             
             if deviceOrientation != .unknown {
-                // TODO: 执行代理方法
                 delegate?.playerViewEnterFullScreen(playerView: self)
             }
         }
@@ -530,7 +547,8 @@ extension PLPlayerView{
 
     /// 监听更多按钮
     @objc func moreBtnClick(){
-
+        removeGestureRecognizer(panGesture)
+        removeGestureRecognizer(singleTap)
     }
 
     /// 监听进度条值改变
@@ -557,6 +575,44 @@ extension PLPlayerView{
                 showBar()
             }else{
                 hideBar()
+            }
+        }
+    }
+    
+    /// 监听拖拽屏幕
+    @objc func panGestureAction(){
+        if panGesture.state == .changed{
+            let location = panGesture.location(in: panGesture.view)
+            let translation = panGesture.translation(in: panGesture.view)
+            panGesture.setTranslation(.zero, in: panGesture.view)
+            //print("location: \(location)")
+            //print("translation: \(translation)")
+            
+            let percent = translation.y / kFullValueOfPanGesture
+            //print("percent: \(percent)")
+            if location.x > self.bounds.width / 2{  //右边调节音量
+                let volume = player?.getVolume()
+                guard var vo = volume else { return }
+                vo = vo - Float(percent)
+                if vo < kminVolume{
+                    vo = kminVolume
+                }else if vo > kmaxVolume{
+                    vo = kmaxVolume
+                }
+                player?.setVolume(vo)
+            }else{                                  //左边调节亮度
+                // FIXME: 没用？？
+                var brightness = UIScreen.main.brightness
+                print(brightness)
+                brightness -= percent
+                if brightness < kminBrightness{
+                    brightness = kminBrightness
+                }else if brightness > kmaxBrightness{
+                    brightness = kmaxBrightness
+                }
+                UIScreen.main.brightness = brightness
+                print(UIScreen.main.brightness)
+                print("======== ")
             }
         }
     }
@@ -891,5 +947,28 @@ extension PLPlayerView{
     func removeFullStreenNotify(){
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
         //NotificationCenter().removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+}
+
+
+// MARK: - 实现代理方法 UIGestureRecognizerDelegate
+extension PLPlayerView: UIGestureRecognizerDelegate{
+    
+    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        /// 判断手势的起始点是否在 bottomBarView 中： 是-->不能开始拖拽   否-->可以拖拽
+        if gestureRecognizer == panGesture{
+            let point = gestureRecognizer.location(in: self)
+            return !bottomBarView.frame.contains(point)
+        }
+        return true
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        ///判断手势的起始点是否在 bottomBarView 中： 是-->允许手势识别器检查触摸对象   否-->手势识别器无法看到此触摸对象
+        if gestureRecognizer == panGesture{
+            let point = touch.location(in: self)
+            return !bottomBarView.frame.contains(point)
+        }
+        return true
     }
 }

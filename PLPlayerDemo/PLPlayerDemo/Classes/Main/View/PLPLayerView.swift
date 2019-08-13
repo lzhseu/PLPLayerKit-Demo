@@ -23,6 +23,8 @@ private let kmaxVolume: Float = 5
 private let kminVolume: Float = 0.01
 private let kmaxBrightness: CGFloat = 3
 private let kminBrightness: CGFloat = 0.01
+private let kControlViewOffsetSuperView = 290
+
 
 protocol PLPlayerViewDelegate: class {
     func playerViewEnterFullScreen(playerView: PLPlayerView)
@@ -213,6 +215,14 @@ class PLPlayerView: UIView {
         panGesture.delegate = self
         return panGesture
     }()
+    
+    /// 更多按钮的控制面板
+    private lazy var controlView: PLControlView = { [weak self] in
+        let controlView = PLControlView(frame: self!.bounds)
+        controlView.isHidden = true
+        controlView.delegate = self
+        return controlView
+    }()
 
 
     override init(frame: CGRect) {
@@ -291,6 +301,7 @@ extension PLPlayerView{
         addSubview(snapshotButton)
         addSubview(bottomBufferingProgressView)
         addSubview(bottomPlayProgressView)
+        addSubview(controlView)
         //addSubview(placeholderImageView)
         insertSubview(placeholderImageView, at: 0)
         
@@ -399,6 +410,10 @@ extension PLPlayerView{
             make.edges.equalToSuperview()
         }
         
+        controlView.snp.makeConstraints { (make) in
+            make.top.bottom.width.equalToSuperview()
+            make.left.equalToSuperview().offset(kControlViewOffsetSuperView)
+        }
     }
     
     
@@ -443,7 +458,7 @@ extension PLPlayerView{
             
             if !isFirst {
                 // TODO: 不是第一次，也就是从横屏切换成竖屏，此时加入一些操作
-                // TODO: 隐藏controlView
+                hideControlView()
                 if !(gestureRecognizers?.contains(singleTap) ?? false){
                     addGestureRecognizer(singleTap)
                 }
@@ -549,6 +564,7 @@ extension PLPlayerView{
     @objc func moreBtnClick(){
         removeGestureRecognizer(panGesture)
         removeGestureRecognizer(singleTap)
+        showControlView()
     }
 
     /// 监听进度条值改变
@@ -712,6 +728,7 @@ extension PLPlayerView{
         removeFullStreenNotify()
         isStop = true
         resetUI()
+        controlView.resetStatus()
         UIApplication.shared.isIdleTimerDisabled = false
     }
 
@@ -936,7 +953,33 @@ extension PLPlayerView{
         bottomPlayProgressView.isHidden = true
         bottomBufferingProgressView.isHidden = true
     }
+    
+    func hideControlView(){
+        controlView.snp.remakeConstraints { (make) in
+            make.width.top.bottom.equalToSuperview()
+            make.left.equalToSuperview().offset(kControlViewOffsetSuperView);
+        }
+        setNeedsUpdateConstraints()
+        updateConstraintsIfNeeded()
+        UIView.animate(withDuration: 0.3, animations: {
+            self.layoutIfNeeded()
+        }) { (finished) in
+            self.controlView.isHidden = true
+        }
+    }
 
+    func showControlView(){
+        hideBar()    //正在播放，则隐藏top和bottom
+        hideTopBar() //暂停，则隐藏top
+        centerPlayButton.isHidden = true
+        centerPauseButton.isHidden = true
+        controlView.isHidden = false
+        controlView.snp.remakeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        
+        doConstraintAnimation()
+    }
 
     func addFullStreenNotify(){
         removeFullStreenNotify()
@@ -970,5 +1013,48 @@ extension PLPlayerView: UIGestureRecognizerDelegate{
             return !bottomBarView.frame.contains(point)
         }
         return true
+    }
+}
+
+
+// MARK: - 实现代理方法
+extension PLPlayerView: PLControlViewDelegate{
+    func controlViewCache(controlView: PLControlView) -> Bool {
+        // TODO: 缓存
+        return false
+    }
+    
+    func controlViewClose(controlView: PLControlView) {
+        hideControlView()
+        if !(gestureRecognizers?.contains(singleTap) ?? false){
+            addGestureRecognizer(singleTap)
+        }
+        if !(gestureRecognizers?.contains(panGesture) ?? false){
+            addGestureRecognizer(panGesture)
+        }
+    }
+    
+    func controlView(controlView: PLControlView, speed: Double) {
+        player?.playSpeed = speed
+    }
+    
+    func controlView(controlView: PLControlView, ratio: PLPLayerRatio) {
+        
+    }
+    
+    func controlView(controlView: PLControlView, isBackgroundPlay: Bool) {
+        
+    }
+    
+    func controlViewMirror(controlView: PLControlView) {
+        
+    }
+    
+    func controlViewRotate(controlView: PLControlView) {
+        
+    }
+    
+    func controlViewCache(controlView: PLControlView) {
+        
     }
 }

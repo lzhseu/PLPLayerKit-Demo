@@ -83,7 +83,7 @@ class PLPlayerViewController: UIViewController {
         setPlayer()
     }
     
-    //视图将要出现的时候调用
+    ///视图将要出现的时候调用
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }

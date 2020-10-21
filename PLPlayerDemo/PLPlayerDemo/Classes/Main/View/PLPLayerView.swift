@@ -569,8 +569,12 @@ extension PLPlayerView{
 
     /// 监听进度条值改变
     @objc func sliderValueChange(){
+        guard let player = player else { return }
         // 快速定位到指定播放时间点
-        player?.seek(to: CMTimeMake(value: Int64(slider.value * 1000), timescale: 1000))
+        player.seek(to: CMTimeMake(value: Int64(slider.value * 1000), timescale: 1000))
+        if player.status == .statusPreparing || player.status == .statusCaching || player.status == .statusReady || player.status == .stateAutoReconnecting{
+            showFullLoading()
+        }
     }
 
     /// 监听单击屏幕
